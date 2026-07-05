@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shahabi Transport | Abschleppdienst & Fahrzeugüberführung</title>
+    <style>
+        /* Modernes Design basierend auf den Logofarben */
+        :root {
+            --primary-color: #0c5adb; /* Das kräftige Blau aus dem Logo */
+            --secondary-color: #06398c; 
+            --dark-color: #1a202c;
+            --light-color: #f7fafc;
+            --accent-color: #e53e3e; /* Rot für den Notruf */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: #ffffff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 15px 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-img {
+            height: 60px;
+            width: auto;
+        }
+
+        .logo-text h1 {
+            font-size: 20px;
+            color: var(--dark-color);
+            letter-spacing: 1px;
+        }
+
+        .logo-text p {
+            font-size: 12px;
+            color: var(--primary-color);
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .notruf-btn {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+            transition: background 0.3s;
+            animation: pulse 2s infinite;
+        }
+
+        .notruf-btn:hover {
+            background-color: #c53030;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* Hero Bereich */
+        .hero {
+            background: linear-gradient(135deg, rgba(6,57,140,0.95) 0%, rgba(12,90,219,0.9) 100%), url('https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            color: white;
+            padding: 100px 5%;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background-color: white;
+            color: var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--light-color);
+            transform: translateY(-2px);
+        }
+
+        /* Leistungen */
+        .services {
+            padding: 80px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h3 {
+            font-size: 32px;
+            color: var(--dark-color);
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title h3::after {
+            content: '';
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary-color);
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--primary-color);
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-card h4 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+        }
+
+        /* Philosophie Info-Box */
+        .info-banner {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 40px 5%;
+            text-align: center;
+        }
+
+        .info-banner-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .info-banner h4 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        /* Preise & Kontakt */
+        .contact-section {
+            padding: 80px 5%;
+            background-color: #ffffff;
+        }
+
+        .contact-container {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .contact-info h4 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+        }
+
+        .info-item {
+            margin-bottom: 20px;
+        }
+
+        .info-item strong {
+            display: block;
+            color: var(--primary-color);
+        }
+
+        .price-box {
+            background-color: var(--light-color);
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 5px solid var(--primary-color);
+            margin-top: 30px;
+        }
+
+        .price-box h5 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        /* Schnellkontakt-Formular-Ersatz */
+        .quick-call-box {
+            background: var(--light-color);
+            padding: 40px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .call-now-btn {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px 30px;
+            font-size: 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+            display: inline-block;
+            transition: background 0.3s;
+        }
+
+        .call-now-btn:hover {
+            background-color: var(--secondary-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: #a0aec0;
+            padding: 30px 5%;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        /* Responsive Anpassungen */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            .hero h2 {
+                font-size: 30px;
+            }
+            .hero p {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo-area">
+                <img src="logo.jpg" alt="Shahabi Transport Logo" class="logo-img">
+                <div class="logo-text">
+                    <h1>SHAHABI</h1>
+                    <p>TRANSPORT</p>
+                </div>
+            </div>
+            <a href="tel:HIER-DEINE-TELEFONNUMMER" class="notruf-btn">🚨 24/7 Nothilfe anrufen</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Abschleppdienst & Fahrzeugüberführung</h2>
+            <p>Ihr zuverlässiger Partner für Transporte und Pannenhilfe – rund um die Uhr für Sie einsatzbereit.</p>
+            <div class="cta-buttons">
+                <a href="tel:HIER-DEINE-TELEFONNUMMER" class="btn btn-primary">Jetzt anrufen</a>
+                <a href="#kontakt" class="btn" style="border: 2px solid white; color: white;">Angebot anfragen</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="services">
+        <div class="section-title">
+            <h3>Unsere Leistungen</h3>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <h4>Abschleppdienst & Pannenhilfe</h4>
+                <p>Schnelle und unkomplizierte Hilfe im Notfall. Wir bergen Ihr Fahrzeug sicher und bringen es an Ihren Wunschort – 24 Stunden am Tag, 7 Tage die Woche.</p>
+            </div>
+            <div class="service-card">
+                <h4>Fahrzeugüberführung</h4>
+                <p>Professionelle Überführung von PKWs und Nutzfahrzeugen. Pünktlich, sicher und absolut sorgfältig durchgeführt von erfahrenen Fahrern.</p>
+            </div>
+            <div class="service-card">
+                <h4>Motorrad-Transport</h4>
+                <p>Spezialtransport von Motorrädern auf Fremdachse sowie flexible Lösungen mit Fremdachse + Einachse. Maximaler Schutz für Ihr Zweirad.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="info-banner">
+        <div class="info-banner-content">
+            <h4>Unser Qualitätsversprechen</h4>
+            <p>Zuverlässigkeit und höchste Qualität sind für uns keine leeren Worte, sondern der absolute Standard bei jedem einzelnen Einsatz.</p>
+        </div>
+    </section>
+
+    <section class="contact-section" id="kontakt">
+        <div class="contact-container">
+            <div class="contact-info">
+                <h4>Kontakt & Erreichbarkeit</h4>
+                
+                <div class="info-item">
+                    <strong>⏰ Öffnungszeiten:</strong>
+                    Durchgehend geöffnet (24/7 Notdienst bei Notfällen)
+                </div>
+
+                <div class="info-item">
+                    <strong>📧 E-Mail:</strong>
+                    info@shahabi-transport.de
+                </div>
+
+                <div class="price-box">
+                    <h5>💰 Preise & Tarife</h5>
+                    <p>Da jeder Transport individuell ist, berechnen wir faire Preise auf Anfrage – ganz genau abgestimmt auf die jeweilige Distanz und Entfernung. Rufen Sie uns einfach an für ein unverbindliches Angebot!</p>
+                </div>
+            </div>
+
+            <div class="quick-call-box">
+                <h3>Schnelle Hilfe benötigt?</h3>
+                <p>Sprechen Sie direkt mit uns. Wir helfen sofort weiter und berechnen Ihnen die Distanz direkt am Telefon.</p>
+                <a href="tel:HIER-DEINE-TELEFONNUMMER" class="call-now-btn">📞 Jetzt anrufen</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Shahabi Transport. Alle Rechte vorbehalten.</p>
+    </footer>
+
+</body>
+</html>
